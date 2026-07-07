@@ -125,6 +125,7 @@ h2 {
 
 .status.live { background-color: #ff4757; }
 .status.upcoming { background-color: #ffa500; }
+.status.ended { background-color: #57606f; }
 
 .table-container {
     overflow-x: auto;

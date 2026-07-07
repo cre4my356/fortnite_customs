@@ -45,15 +45,21 @@ const allTimeRecords = {
 
 function loadTournaments() {
     const list = document.getElementById('tournament-list');
-    list.innerHTML = tournaments.map(t => `
-        <div class="card">
-            <span class="status ${t.status}">${t.status === 'live' ? 'LIVE' : 'Upcoming'}</span>
-            <h3 style="margin-top: 10px;">${t.title}</h3>
-            <p><strong>Date:</strong> ${t.date}</p>
-            <p><strong>Mode:</strong> ${t.mode}</p>
-            <p><strong>Prize:</strong> ${t.prize}</p>
-        </div>
-    `).join('');
+    list.innerHTML = tournaments.map(t => {
+        // Bestimmt den Text, der im Schild angezeigt wird
+        let statusText = t.status.toUpperCase();
+        if (t.status === 'upcoming') statusText = 'Upcoming';
+
+        return `
+            <div class="card">
+                <span class="status ${t.status}">${statusText}</span>
+                <h3 style="margin-top: 10px;">${t.title}</h3>
+                <p><strong>Date:</strong> ${t.date}</p>
+                <p><strong>Mode:</strong> ${t.mode}</p>
+                <p><strong>Prize:</strong> ${t.prize}</p>
+            </div>
+        `;
+    }).join('');
 }
 
 function loadResults() {
