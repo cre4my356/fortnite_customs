@@ -1,7 +1,7 @@
 const tournaments = [
     {
         title: "First Practice Cup",
-        date: "7th July, 21:00 CEST",
+        date: "9th July, 21:00 CEST",
         mode: "Solo (Build)",
         prize: "Server Performance Test",
         status: "upcoming"
