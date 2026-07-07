@@ -76,10 +76,19 @@ h2 {
     padding-left: 15px;
 }
 
-.card-container {
+/* Rettet das Design und macht das 2x2 Raster für die Cups */
+#tournament-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Genau 2 Spalten nebeneinander */
+    gap: 20px; /* Abstand zwischen den Boxen */
+    margin-top: 20px;
+}
+
+/* Auf Handys schaltet es automatisch untereinander um, damit nichts abgeschnitten wird */
+@media (max-width: 768px) {
+    #tournament-list {
+        grid-template-columns: 1fr; /* 1 Spalte auf dem Smartphone */
+    }
 }
 
 .card {

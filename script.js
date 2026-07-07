@@ -1,28 +1,41 @@
 const tournaments = [
     {
-        title: "First Practice Cup",
-        date: "9th July, 21:00 CEST",
+        title: "First Practice Cup (Solo)",
+        date: "Tonight, 21:00 CEST",
         mode: "Solo (Build)",
         prize: "Server Performance Test",
+        status: "live" // Auf 'live' gesetzt, weil es heute Abend abgeht!
+    },
+    {
+        title: "Second Practice Cup (Duo)",
+        date: "Thursday, 21:00 CEST",
+        mode: "Duo (Build)",
+        prize: "Server Performance Test",
+        status: "upcoming"        
+    },
+    {
+        title: "Friday Night Showdown",
+        date: "Unlocks at 21 active tournamet players",
+        mode: "Trio (Build)",
+        prize: "Custom Role + Hype",
         status: "upcoming"
     },
     {
         title: "100 Member Special",
-        date: "???",
+        date: "coming soon",
         mode: "Duo (Build)",
-        prize: "???",
+        prize: "Surprise Prize Pool",
         status: "upcoming"
     }
 ];
 
-// UPDATED: Hier trägst du immer die Sieger der letzten 3 Turniere ein
+// ... (Der Rest deiner Ergebnisse, Rekorde und Ladefunktionen bleibt genau gleich!)
 const results = [
-    { rank: 1, name: "None", points: 0, kills: 0, tournament: "" },
-    { rank: 1, name: "None", points: 0, kills: 0, tournament: "" },
-    { rank: 1, name: "None", points: 0, kills: 0, tournament: "" }
+    { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #3" },
+    { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #2" },
+    { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #1" }
 ];
 
-// NEW: Enter your server's all-time records here manually
 const allTimeRecords = {
     mostKills: { value: 28, player: "Brix" },
     highestPoints: { value: 245, player: "Knusper unc356" },
@@ -56,7 +69,6 @@ function loadResults() {
     `).join('');
 }
 
-// NEW: Function to display the records in the HTML boxes
 function loadRecords() {
     document.getElementById('record-kills-value').innerText = `${allTimeRecords.mostKills.value} Kills`;
     document.getElementById('record-kills-player').innerText = `by ${allTimeRecords.mostKills.player}`;
@@ -74,5 +86,5 @@ function loadRecords() {
 window.onload = () => {
     loadTournaments();
     loadResults();
-    loadRecords(); // Executed on page load
+    loadRecords();
 };
