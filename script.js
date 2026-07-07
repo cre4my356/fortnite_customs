@@ -4,7 +4,7 @@ const tournaments = [
         date: "Tonight, 21:00 CEST",
         mode: "Solo (Build)",
         prize: "Server Performance Test",
-        status: "live" // Auf 'live' gesetzt, weil es heute Abend abgeht!
+        status: "ended" // Auf 'live' gesetzt, weils es heute Abend abgeht!
     },
     {
         title: "Second Practice Cup (Duo)",
@@ -31,9 +31,9 @@ const tournaments = [
 
 // ... (Der Rest deiner Ergebnisse, Rekorde und Ladefunktionen bleibt genau gleich!)
 const results = [
-    { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #3" },
+    { rank: 1, name: "Sahndichvoll", points: 141, kills: 16, tournament: "Practice Cup #1" },
     { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #2" },
-    { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #1" }
+    { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #3" }
 ];
 
 const allTimeRecords = {
