@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Customs - Tournaments & Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">FORTNITE CUSTOMS</div>
+        <nav>
+            <a href="#tournaments">Upcoming Tournaments</a>
+            <a href="#results">Past Results</a>
+            <a href="#records">All-Time Records</a>
+            <a href="https://discord.gg/fSYghS4mnx" target="_blank" class="discord-btn">Join Discord</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tournaments">
+            <h2>Current & Upcoming Tournaments</h2>
+            <div class="card-container" id="tournament-list"></div>
+        </section>
+
+        <section id="results">
+            <h2>Past Tournament Results</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player / Duo</th>
+                            <th>Points</th>
+                            <th>Kills</th>
+                            <th>Tournament</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-list"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="records">
+            <h2>All-Time Records 👑</h2>
+            <div class="records-grid">
+                <div class="record-box">
+                    <div class="record-icon">🎯</div>
+                    <h3>Most Kills (Single Game)</h3>
+                    <p id="record-kills-value" class="record-value">0 Kills</p>
+                    <p id="record-kills-player" class="record-player">No record yet</p>
+                </div>
+                <div class="record-box">
+                    <div class="record-icon">🔥</div>
+                    <h3>Highest Score (Single Cup)</h3>
+                    <p id="record-points-value" class="record-value">0 Points</p>
+                    <p id="record-points-player" class="record-player">No record yet</p>
+                </div>
+                <div class="record-box">
+                    <div class="record-icon">👑</div>
+                    <h3>Most Tournament Wins</h3>
+                    <p id="record-wins-value" class="record-value">0 Wins</p>
+                    <p id="record-wins-player" class="record-player">No record yet</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Fortnite Customs Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
