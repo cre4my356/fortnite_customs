@@ -4,14 +4,14 @@ const tournaments = [
         date: "Tonight, 21:00 CEST",
         mode: "Solo (Build)",
         prize: "Server Performance Test",
-        status: "ended" // Auf 'live' gesetzt, weils es heute Abend abgeht!
+        status: "ended"
     },
     {
         title: "Second Practice Cup (Duo)",
         date: "Thursday, 21:00 CEST",
         mode: "Duo (Build)",
         prize: "Server Performance Test",
-        status: "upcoming"        
+        status: "live"        
     },
     {
         title: "Friday Night Showdown",
@@ -26,10 +26,23 @@ const tournaments = [
         mode: "Duo (Build)",
         prize: "Surprise Prize Pool",
         status: "upcoming"
+    },
+    {
+        title: "Turnier 5 Name",
+        date: "Sunday, 20:00 CEST",
+        mode: "Duo",
+        prize: "Reload Test",
+        status: "upcoming"
+    },
+    {
+        title: "Turnier 6 Name",
+        date: "Datum / Uhrzeit",
+        mode: "Modus",
+        prize: "Gewinn / Preis",
+        status: "upcoming"
     }
 ];
 
-// ... (Der Rest deiner Ergebnisse, Rekorde und Ladefunktionen bleibt genau gleich!)
 const results = [
     { rank: 1, name: "Sahndichvoll", points: 141, kills: 16, tournament: "Practice Cup #1" },
     { rank: 1, name: "None", points: 0, kills: 0, tournament: "Practice Cup #2" },
@@ -45,8 +58,8 @@ const allTimeRecords = {
 
 function loadTournaments() {
     const list = document.getElementById('tournament-list');
+    if (!list) return;
     list.innerHTML = tournaments.map(t => {
-        // Bestimmt den Text, der im Schild angezeigt wird
         let statusText = t.status.toUpperCase();
         if (t.status === 'upcoming') statusText = 'Upcoming';
 
@@ -64,6 +77,7 @@ function loadTournaments() {
 
 function loadResults() {
     const list = document.getElementById('results-list');
+    if (!list) return;
     list.innerHTML = results.map(r => `
         <tr>
             <td><strong>#${r.rank}</strong></td>
@@ -76,17 +90,26 @@ function loadResults() {
 }
 
 function loadRecords() {
-    document.getElementById('record-kills-value').innerText = `${allTimeRecords.mostKills.value} Kills`;
-    document.getElementById('record-kills-player').innerText = `by ${allTimeRecords.mostKills.player}`;
+    // Diese Sicherheitsabfragen verhindern, dass das Skript abstürzt, wenn ein Feld im HTML fehlt
+    if (document.getElementById('record-kills-value')) {
+        document.getElementById('record-kills-value').innerText = `${allTimeRecords.mostKills.value} Kills`;
+        document.getElementById('record-kills-player').innerText = `by ${allTimeRecords.mostKills.player}`;
+    }
 
-    document.getElementById('record-points-value').innerText = `${allTimeRecords.highestPoints.value} Points`;
-    document.getElementById('record-points-player').innerText = `by ${allTimeRecords.highestPoints.player}`;
+    if (document.getElementById('record-points-value')) {
+        document.getElementById('record-points-value').innerText = `${allTimeRecords.highestPoints.value} Points`;
+        document.getElementById('record-points-player').innerText = `by ${allTimeRecords.highestPoints.player}`;
+    }
 
-    document.getElementById('record-twoday-value').innerText = `${allTimeRecords.highestPointsTwoDay.value} Points`;
-    document.getElementById('record-twoday-player').innerText = `by ${allTimeRecords.highestPointsTwoDay.player}`;
+    if (document.getElementById('record-twoday-value')) {
+        document.getElementById('record-twoday-value').innerText = `${allTimeRecords.highestPointsTwoDay.value} Points`;
+        document.getElementById('record-twoday-player').innerText = `by ${allTimeRecords.highestPointsTwoDay.player}`;
+    }
 
-    document.getElementById('record-wins-value').innerText = `${allTimeRecords.mostWins.value} Wins`;
-    document.getElementById('record-wins-player').innerText = `by ${allTimeRecords.mostWins.player}`;
+    if (document.getElementById('record-wins-value')) {
+        document.getElementById('record-wins-value').innerText = `${allTimeRecords.mostWins.value} Wins`;
+        document.getElementById('record-wins-player').innerText = `by ${allTimeRecords.mostWins.player}`;
+    }
 }
 
 window.onload = () => {

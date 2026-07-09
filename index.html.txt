@@ -21,7 +21,7 @@
     <main>
         <section id="tournaments">
             <h2>Current & Upcoming Tournaments</h2>
-            <div class="card-container" id="tournament-list"></div>
+            <div class="tournament-grid" id="tournament-list"></div>
         </section>
 
         <section id="results">
