@@ -15,7 +15,7 @@ const tournaments = [
     },
     {
         title: "Friday Night Showdown",
-        date: "Unlocks at 21 active tournamet players",
+        date: "Unlocks at 21 active tournament players",
         mode: "Trio (Build)",
         prize: "Custom Role + Hype",
         status: "upcoming"
@@ -28,17 +28,17 @@ const tournaments = [
         status: "upcoming"
     },
     {
-        title: "Turnier 5 Name",
+        title: "First Reload Tournament (Duo)",
         date: "Sunday, 20:00 CEST",
-        mode: "Duo",
+        mode: "Duo (Build)",
         prize: "Reload Test",
         status: "upcoming"
     },
     {
-        title: "Turnier 6 Name",
-        date: "Datum / Uhrzeit",
-        mode: "Modus",
-        prize: "Gewinn / Preis",
+        title: "Second Reload Tournament (Solo)",
+        date: "Monday, 21:00 CEST",
+        mode: "Solo (Build)",
+        prize: "Reload Test",
         status: "upcoming"
     }
 ];
@@ -90,7 +90,6 @@ function loadResults() {
 }
 
 function loadRecords() {
-    // Diese Sicherheitsabfragen verhindern, dass das Skript abstürzt, wenn ein Feld im HTML fehlt
     if (document.getElementById('record-kills-value')) {
         document.getElementById('record-kills-value').innerText = `${allTimeRecords.mostKills.value} Kills`;
         document.getElementById('record-kills-player').innerText = `by ${allTimeRecords.mostKills.player}`;
@@ -112,8 +111,9 @@ function loadRecords() {
     }
 }
 
-window.onload = () => {
+// Sicherer Start, sobald das HTML bereit ist
+document.addEventListener("DOMContentLoaded", () => {
     loadTournaments();
     loadResults();
     loadRecords();
-};
+});
